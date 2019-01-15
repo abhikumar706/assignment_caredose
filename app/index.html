@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Dog lover</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="login.css">
+
+</head>
+<body style="margin:0" >
+<div id="login_page">
+    <div style="height: 100vh;width:100vw;background-color: yellow;background-image: linear-gradient(to bottom right, #a4c5ff, #061827);">
+        <div style="height:80vh;width:40vw; background-color: #f3f3f3;margin:auto;position: relative;top:10vh">
+            <div style="position:relative; top:30%; margin:auto;">
+                <div class="form-group mt-10">
+                    <div class="group" >
+                        <input class="input_text" id="email" required>
+                        <span class="bar" id="emailbar"></span>
+                        <label id="email_label" class="label_text">Login ID</label>
+                        <div class="help-block with-errors text-center"></div>
+                    </div>
+                </div>
+
+                <div class="form-group" style=" margin-top: 20px;">
+                    <div class="group mb-0" id="password">
+                        <input class="input_text" id="password2" type="password" required>
+                        <span class="bar" id="passbar"></span>
+                        <label class="label_text">Password</label>
+                        <div class="help-block with-errors text-center"></div>
+                    </div>
+                </div>
+
+                <div class = "flex-container" style=" margin-top: 50px;">
+                    <button id="signinButton"  type="submit" class="btn btn-info btn-success btn-rounded mb-10"  >sign in</button>
+                    <div class="loader ml-10 mb-10 mt-5" id="loading"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+
+
+<div id="main_page" style="display: none;">
+<div style="height:100vh;width:100vw; ">
+<div style="position:relative;text-align: center; top:0;height:20vh;width:100vw; border-bottom: 1px solid">
+    <a style="font-size: 80px;position:relative;top:25%;margin:auto;">DOG PORTAL</a>
+</div>
+<div style=" height:80vh; width:100vw;">
+
+    <div style=" height:80vh; width:19vw; float:left; border-right: 1px solid;">
+        <div style="max-height:100px;text-align: center" >
+            <H5>Hi,<a id="username"></a> </H5>
+        </div>
+        <hr>
+        <div style="text-align: center">
+            <H5><a id="menu_your_dogs">Your Dogs</a></H5>
+        </div>
+        <hr>
+        <div style="text-align: center">
+            <H5><a id="menu_breeds_dogs">Breeds</a></H5>
+        </div>
+        <hr>
+        <div style="text-align: center">
+            <H5><a id="menu_all_dogs">All Dogs</a></H5>
+        </div>
+        <hr>
+        <div style="text-align: center">
+            <H5><a id="logout">Logout</a></H5>
+        </div>
+
+
+    </div>
+
+    <div id="breeds" style=" display: none; height:80vh; width:80vw; float :right ">
+        <div style="position: relative; height: 100%;width:100%;">
+
+            <div style=" text-align:center;  height:70vh; ;position: relative;top:0;width:50%; float: left;">
+                <H3>BREED : </H3> <a id = breed_dog_breed_display></a>
+
+
+            </div>
+            <div style=" height:70vh; position: relative;top:0;width:50%; float: right;">
+                <img style="height:100%;width: 100%;object-fit: cover;overflow: hidden;" id = breed_dog_image_display src="https://cdn2-www.dogtime.com/assets/uploads/gallery/poodle-dog-breed-pictures/elegence-1.jpg" alt="Your Dog">
+
+
+            </div>
+
+
+            <div style=" text-align:center;  height:10vh;position: absolute;width:100%; bottom: 0;">
+                <div  style="width: 50%;height: 100%; float: left">
+                    <H5> <a id="breed_prev">Previous</a></H5>
+                </div>
+                <div  style="width: 50%;height: 100%; float: right">
+                    <H5><a id="breed_next">Next</a></H5>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <div  id="all_dogs"style=" display: none; height:80vh; width:80vw; float :right ">
+        <div style="position: relative; height: 100%;width:100%;">
+
+            <div style=" text-align:center;  height:70vh; position: relative;top:0;width:50%; float: left;">
+                <H3>NAME : </H3> <a id = all_dog_name_display></a>
+
+                <H3>AGE : </H3> <a id = all_dog_age_display></a>
+
+
+            </div>
+            <div style=" height:70vh;position: relative;top:0;width:50%; float: right;">
+                <img style="height:100%;width: 100%;object-fit: cover;overflow: hidden;" id = all_dog_image_display src="https://cdn2-www.dogtime.com/assets/uploads/gallery/poodle-dog-breed-pictures/elegence-1.jpg" alt="Your Dog">
+
+
+            </div>
+
+
+            <div style=" text-align:center;  height:10vh; position: absolute;width:100%; bottom: 0;">
+                <div  style="width: 50%;height: 100%; float: left">
+                    <H5> <a id="all_prev">Previous</a></H5>
+                </div>
+                <div  style="width: 50%;height: 100%;float: right">
+                    <H5><a id="all_next">Next</a></H5>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id = "your_dogs" style=" height:80vh; width:80vw; float :right ">
+    <div  style="position: relative; height: 100%;width:100%;">
+
+        <div style=" text-align:center;  height:70vh; position: relative;top:0;width:50%; float: left;">
+            <H3>NAME : </H3> <a id = dog_name_display></a>
+            <H3>BREED : </H3> <a id = dog_breed_display></a>
+            <H3>AGE : </H3> <a id = dog_age_display></a>
+
+
+        </div>
+        <div style=" height:70vh; position: relative;top:0;width:50%; float: right;">
+            <img style="height:100%;width: 100%;object-fit: cover;overflow: hidden;" id = dog_image_display src="https://cdn2-www.dogtime.com/assets/uploads/gallery/poodle-dog-breed-pictures/elegence-1.jpg" alt="Your Dog">
+
+
+        </div>
+
+
+    <div style=" text-align:center;  height:10vh; position: absolute;width:100%; bottom: 0;">
+    <div  style="width: 25%;height: 100%;float: left">
+        <H5> <a id="prev">Previous</a></H5>
+    </div>
+        <div style="width: 25%;height: 100%; darkcyan; float: left">
+            <H5>EDIT INFORMATION</H5>
+        </div>
+        <div style="width: 25%;height: 100%; gold; float: left">
+            <H5><a id="add">ADD DOG</a></H5>
+        </div>
+    <div  style="width: 25%;height: 100%; float: right">
+        <H5><a id="next">Next</a></H5>
+    </div>
+
+
+    </div>
+    </div>
+        <div id="add_info_dog" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span id="close_modal" class="close">&times;</span>
+                <p>Add the details</p>
+                Name:<input style="width: 100%;" id="add_dog_name" type="text" required>
+                Age:<input style="width: 100%;"id="add_dog_age" type="number" min="1" max="25" required>
+                Photo URL:<input style="width: 100%;" id="add_dog_url" required>
+                Breed ID:<input style="width: 100%;" id="add_dog_breed" type="number" min="1" max="3" required>
+                <button id="new_dog_submit" style="margin: auto">Submit</button>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="index.js"></script>
+
+</body>
+</html>
